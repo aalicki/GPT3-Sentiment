@@ -1,7 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\PublicController;
+use App\Http\Controllers\SentimentController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,7 +19,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::post('/check-sentiment', [PublicController::class, 'processSentiment'])->name('sentiment.check');
+Route::post('/check-sentiment', [SentimentController::class, 'processSentiment'])->name('sentiment.check');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
