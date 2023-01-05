@@ -19,7 +19,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::post('/check-sentiment', [SentimentController::class, 'processSentiment'])->name('sentiment.check');
+Route::prefix('sentiment')->group(function () {
+
+    Route::get('/', [SentimentController::class, 'index']);
+    Route::post('/check-sentiment', [SentimentController::class, 'processSentiment'])->name('sentiment.check');
+});
 
 Route::get('/dashboard', function () {
     return view('dashboard');

@@ -15,7 +15,7 @@ class CheckSentimentRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'text' => 'string|required',
+            'text' => 'required|min:4|max:180'
         ];
     }
 }

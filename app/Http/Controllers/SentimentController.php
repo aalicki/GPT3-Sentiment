@@ -34,13 +34,28 @@ class SentimentController extends Controller
      */
     private int $temperature = 0;
 
+    public function index()
+    {
+
+        return view('sentiment.index');
+    }
+
+    /**
+     * Any pre-flight checks before checking sentiment
+     *
+     * @param CheckSentimentRequest $request
+     * @return Request
+     */
+    private function preCheck(CheckSentimentRequest $request)
+    {
+        return $request->validated();
+    }
+
     public function processSentiment(CheckSentimentRequest $request)
     {
 
-        $validated = $request->validate([
-            'text' => 'string|required|min:4',
-        ]);
-
+        // Pre-Checks
+        $this->preCheck($request);
 
         // Reduce max tokens for this, not needed
         $this->maxTokens = 4;
@@ -57,10 +72,28 @@ class SentimentController extends Controller
             'temperature'   => $this->temperature
         ]);
 
-        $sentiment = $result['choices'][0]['text'];
+        $sentiment = $this->handleSentimentConfusion($result['choices'][0]['text']);
 
-        return redirect('/')
+        return view('sentiment.index')
             ->with('text', $text)
             ->with('sentiment', $sentiment);
+    }
+
+    /**
+     * Ensure we return one of three valid sentiment ratings
+     *
+     * @param $sentiment
+     * @return string
+     */
+    private function handleSentimentConfusion($sentiment)
+    {
+
+        // If not Negative or Positive, return Neutral
+        if ($sentiment != "Negative" || $sentiment != "Positive") {
+            return "Neutral";
+        } else {
+            return $sentiment;
+        }
+
     }
 }
