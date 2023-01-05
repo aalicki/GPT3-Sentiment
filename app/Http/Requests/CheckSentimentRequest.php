@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use App\Rules\Throttle;
 use Illuminate\Foundation\Http\FormRequest;
 
 class CheckSentimentRequest extends FormRequest
@@ -15,7 +16,10 @@ class CheckSentimentRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'text' => 'required|min:4|max:180'
+            'text' =>
+                'required|min:4|max:180',
+                //TODO: Add Throttle -> new Throttle('sentiment.check', $maxAttempts = 1, $minutes = 2),
+
         ];
     }
 }
