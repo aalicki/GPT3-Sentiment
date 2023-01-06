@@ -22,7 +22,7 @@
 @if(!empty($sentiment))
     <section class="text-gray-600 body-font relative">
         <div class="lg:w-1/3 bg-gray-700 rounded-lg p-8 flex flex-col mx-auto w-full mt-10 relative z-10 shadow-md">
-            <span class="text-white">Overall Sentiment: <span class="font-bold">{{$sentiment}}</span></span> <br>
+            <span class="text-white">Overall Sentiment: <span class="font-bold">{{ strtoupper($sentiment) }}</span></span> <br>
 
             <p class="text-white">
                 <span class="font-bold">Text Provided:</span><br>

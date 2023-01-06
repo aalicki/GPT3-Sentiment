@@ -36,7 +36,6 @@ class SentimentController extends Controller
 
     public function index()
     {
-
         return view('sentiment.index');
     }
 
@@ -72,11 +71,9 @@ class SentimentController extends Controller
             'temperature'   => $this->temperature
         ]);
 
-        $sentiment = $this->handleSentimentConfusion($result['choices'][0]['text']);
-
         return view('sentiment.index')
             ->with('text', $text)
-            ->with('sentiment', $sentiment);
+            ->with('sentiment', $this->handleSentimentConfusion($result['choices'][0]['text']));
     }
 
     /**
@@ -85,14 +82,16 @@ class SentimentController extends Controller
      * @param $sentiment
      * @return string
      */
-    private function handleSentimentConfusion($sentiment)
+    private function handleSentimentConfusion(string $sentiment)
     {
 
-        // If not Negative or Positive, return Neutral
-        if ($sentiment != "Negative" || $sentiment != "Positive") {
-            return "Neutral";
-        } else {
+        $sentiment = strtolower($sentiment);
+
+        if (str_contains($sentiment, 'negative') || str_contains($sentiment, 'positive')) {
             return $sentiment;
+        } else {
+
+            return 'neutral';
         }
 
     }
