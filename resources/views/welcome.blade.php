@@ -15,20 +15,21 @@
     </head>
     <body class="antialiased bg-cyan-500">
 
-        <section class="text-gray-600 body-font relative">
+        <section class="text-gray-600 body-font relative text-base">
             <div class="lg:w-1/3 bg-gray-700 rounded-lg p-8 flex flex-col mx-auto w-full mt-10 relative z-10 shadow-md text-white">
 
                 <h2 class="leading-4 text-2xl">Welcome to Aspira!</h2>
 
-                <p class="pt-6 pb-6">
+                <p class="pt-6 pb-6 text-lg">
                     A place where creative tools, concepts, and ideas come to life or simply exist for some period of time. Imagine it like a little city,
                     a city built on inspiration and expirenments!
                 </p>
 
-                <p>
+                <p class="text-lg">
                     <span class="font-bold">Explore:</span><br>
                     <ul class="text-sky-400">
-                        <li><a href="/sentiment">Sentiment Checking</a></li>
+                        <li><a href="/sentiment" class="hover:text-sky-300">Sentiment Checking (v. 0.0.1)</a></li>
+                        <li><a href="/#" class="hover:text-sky-300">Link</a></li>
                     </ul>
                 </p>
             </div>
