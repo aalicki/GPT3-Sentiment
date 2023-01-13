@@ -95,4 +95,17 @@ class SentimentController extends Controller
         }
 
     }
+
+    private function cleanSentimentResult(string $sentiment)
+    {
+
+        // Check length of string returned
+
+        // check if longer than: neutral, positive, negative
+
+        // cut off any words after the above
+
+        // return sentiment rating
+
+    }
 }

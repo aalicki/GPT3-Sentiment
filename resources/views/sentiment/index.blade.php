@@ -32,6 +32,29 @@
     </section>
 @endif
 
+<section class="text-gray-600 body-font relative">
+    <div class="lg:w-1/3 bg-gray-300 rounded-lg p-4 flex flex-col mx-auto w-full mt-10 relative z-10 shadow-md">
+        <div x-data="{ expanded: false }">
+            <button @click="expanded = ! expanded">Answers to your Questions &#8595</button>
+
+            <div x-show="expanded" x-collapse>
+                <p class="mt-5">
+                    <strong>How many times can I check the sentiment of something?</strong><br>
+                    <i>Guests</i> have 3 submissions per minute.<br>
+                    <i>Logged In Users</i> have 10 submissions per minute.<br>
+                    <i>Premium Users</i> have 100 submissions per minute.
+                </p>
+
+                <p class="mt-5">
+                    <strong>Whats the cost of using this?</strong><br>
+                    Currently we're offering this service for free. Though we have limits pending if you're a guest or logged in.
+                    We'll eventually offer a premium service that has higher limits and more features.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
 <footer class="text-gray-600 body-font">
     <div class="bg-cyan-400 mt-20">
         <div class="lg:w-1/3 container px-5 py-6 mx-auto flex items-center sm:flex-row flex-col">

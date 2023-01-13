@@ -50,7 +50,7 @@ class AppServiceProvider extends ServiceProvider
 
     /**
      * Configure the rate limiters for the application.
-     * 
+     *
      * Limits submissions through the 'sentiment' throttle based
      * on account / guest status.
      */
