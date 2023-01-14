@@ -85,7 +85,7 @@ class SentimentController extends Controller
     private function handleSentimentConfusion(string $sentiment)
     {
 
-        $sentiment = strtolower($sentiment);
+        $sentiment = strtolower($this->cleanSentimentResult($sentiment));
 
         if (str_contains($sentiment, 'negative') || str_contains($sentiment, 'positive')) {
             return $sentiment;
@@ -100,12 +100,10 @@ class SentimentController extends Controller
     {
 
         // Check length of string returned
-
-        // check if longer than: neutral, positive, negative
-
-        // cut off any words after the above
+        // cut off any words after the 7th character
+        $sentiment = substr($sentiment, 0, 7);
 
         // return sentiment rating
-
+        return $sentiment;
     }
 }
