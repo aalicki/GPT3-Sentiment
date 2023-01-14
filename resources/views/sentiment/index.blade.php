@@ -1,19 +1,4 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <title>{{ env('APP_NAME') ?? 'App Name' }}</title>
-
-    <!-- Fonts -->
-    <link href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
-
-    <!-- Scripts -->
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
-    @stack('css')
-</head>
-<body class="antialiased bg-cyan-500">
+<x-app-layout>
 
 <section class="text-gray-600 body-font relative">
     @include('sentiment.form')
@@ -60,17 +45,14 @@
         <div class="lg:w-1/3 container px-5 py-6 mx-auto flex items-center sm:flex-row flex-col">
             <a class="flex title-font font-medium items-center md:justify-start justify-center text-cyan-900">
                 <img src="{{asset('images/aspira-logo.png')}}" alt="Apsira Sentiment Logo" class="h-16">
-                <span class="ml-3"><strong>v.</strong> 0.1.9</span>
+                <span class="ml-3"><strong>v.</strong> 0.1.10</span>
             </a>
             <span class="inline-flex sm:ml-auto sm:mt-0 mt-4 justify-center sm:justify-start">
                 © 2023 Aspira Sentiment —
-                <a href="https://twitter.com/adamalicki" rel="noopener noreferrer" class="text-gray-600 ml-1" target="_blank">@adamalicki</a>
+                <a href="https://twitter.com/adamalicki" rel="noopener noreferrer" class="text-gray-600 ml-1 font-bold hover:text-white" target="_blank">@adamalicki</a>
             </span>
         </div>
     </div>
 </footer>
 
-@stack('scripts')
-
-</body>
-</html>
+</x-app-layout>

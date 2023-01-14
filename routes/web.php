@@ -21,7 +21,7 @@ Route::get('/', function () {
 
 Route::prefix('sentiment')->group(function () {
 
-    Route::get('/', [SentimentController::class, 'index']);
+    Route::get('/', [SentimentController::class, 'index'])->name('sentiment');
 
     Route::middleware(['throttle:sentiment'])->group(function () {
         Route::post('/check-sentiment', [SentimentController::class, 'processSentiment'])->name('sentiment.check');

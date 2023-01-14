@@ -13,8 +13,8 @@
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
-    <body class="font-sans text-gray-900 antialiased">
-        <div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-gray-100">
+    <body class="font-sans text-white antialiased bg-cyan-500">
+        <div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0">
             <div>
                 <a href="/">
                     <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
@@ -25,5 +25,20 @@
                 {{ $slot }}
             </div>
         </div>
+
+        <footer class="text-gray-600 body-font">
+            <div class="bg-cyan-400 mt-20">
+                <div class="lg:w-1/3 container px-5 py-6 mx-auto flex items-center sm:flex-row flex-col">
+                    <a class="flex title-font font-medium items-center md:justify-start justify-center text-cyan-900">
+                        <img src="{{asset('images/aspira-logo.png')}}" alt="Apsira Sentiment Logo" class="h-16">
+                        <span class="ml-3"><strong>v.</strong> 0.1.9</span>
+                    </a>
+                    <span class="inline-flex sm:ml-auto sm:mt-0 mt-4 justify-center sm:justify-start">
+                © 2023 Aspira Sentiment —
+                <a href="https://twitter.com/adamalicki" rel="noopener noreferrer" class="text-gray-600 ml-1" target="_blank">@adamalicki</a>
+            </span>
+                </div>
+            </div>
+        </footer>
     </body>
 </html>
