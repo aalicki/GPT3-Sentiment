@@ -14,19 +14,7 @@ class AppServiceProvider extends ServiceProvider
      * Guest Limit
      * @var int
      */
-    public $guestLimit = 3;
-
-    /**
-     * Logged In User Limit
-     * @var int
-     */
-    public $userLimit = 10;
-
-    /**
-     * Premium User Limit
-     * @var int
-     */
-    public $premiumLimit = 100;
+    public $limit = 5;
 
     /**
      * Register any application services.
@@ -58,9 +46,7 @@ class AppServiceProvider extends ServiceProvider
     {
 
         RateLimiter::for('sentiment', function (Request $request) {
-            return $request->user()
-                ? Limit::perMinute($this->userLimit)->by($request->user()->id)
-                : Limit::perMinute($this->guestLimit)->by($request->ip());
+            return $request->user()->Limit::perMinute($this->limit)->by($request->ip());
         });
     }
 }

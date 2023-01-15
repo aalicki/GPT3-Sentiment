@@ -36,7 +36,7 @@
             <i>Notes:</i><br>
             <strong>Requirement: text greater than 5 characters, less than 180.</strong><br><br>
 
-            We are calibrating our model to consistently better detect sentiment within a given text.<br> As of now, we return a very basic
+            As of now, this returns a very basic
             rating, ranging from: Negative, Positive, and Neutral.
         </p>
     </div>

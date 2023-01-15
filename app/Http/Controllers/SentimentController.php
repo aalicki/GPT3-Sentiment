@@ -93,7 +93,6 @@ class SentimentController extends Controller
 
             return 'neutral';
         }
-
     }
 
     private function cleanSentimentResult(string $sentiment)
