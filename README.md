@@ -8,6 +8,12 @@ general sentiment of that string based on `GPT-3 text-davinci-003` processing.
 It's built in Laravel currently, as the idea for this began as something akin to suite of tools and ways to
 utilize AI within an organization.
 
+## Requirements
+- PHP 8.1+
+- Docker
+- Laravel Sail
+
+
 ## Local Development
 
 This was developed using [Laravel Sail](https://laravel.com/docs/9.x/sail), which means you'll need Docker.
